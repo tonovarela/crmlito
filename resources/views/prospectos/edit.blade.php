@@ -443,7 +443,7 @@
                                                             style="width: 100%">
                                                             <option disabled selected>País</option>
                                                             @foreach ($paises as $pais)
-                                                                @if (utf8_decode($pais->Descripcion) === utf8_decode($prospecto->Pais))
+                                                                @if (mb_convert_encoding($pais->Descripcion ?? '', 'ISO-8859-1', 'UTF-8') === mb_convert_encoding($prospecto->Pais ?? '', 'ISO-8859-1', 'UTF-8'))
                                                                     <option value="{{ $pais->Descripcion }}" selected>
                                                                         {{ $prospecto->Pais }}
                                                                     </option>
@@ -1050,7 +1050,7 @@
                                                 style="width: 100%">
                                                 <option selected disabled>País</option>
                                                 @foreach ($paises as $pais)
-                                                    @if (strtoupper(utf8_decode($pais->Descripcion)) == strtoupper(utf8_decode($prospecto->PaisFiscal)))
+                                                    @if (strtoupper(mb_convert_encoding($pais->Descripcion ?? '', 'ISO-8859-1', 'UTF-8')) == strtoupper(mb_convert_encoding($prospecto->PaisFiscal ?? '', 'ISO-8859-1', 'UTF-8')))
                                                         <option value="{{ $pais->Descripcion }}" selected>
                                                             {{ $prospecto->PaisFiscal }}
                                                         </option>

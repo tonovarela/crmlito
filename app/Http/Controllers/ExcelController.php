@@ -6,6 +6,7 @@ use App\Clientes;
 use App\Exports\ClientesExport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ExcelController extends Controller
@@ -44,7 +45,8 @@ class ExcelController extends Controller
 
             $path = $request->file('sample_file')->getRealPath();
 
-            $data = Excel::load($path)->get();
+            // API de Laravel-Excel 3.1 (Excel::load era de la 2.x)
+            $data = Excel::toCollection(new class implements WithHeadingRow {}, $path)->first();
 
 
 
@@ -52,7 +54,7 @@ class ExcelController extends Controller
 
                 foreach ($data as $key => $value) {
 
-                    $arr[] = ['title' => $value->title, 'body' => $value->body];
+                    $arr[] = ['title' => $value['title'], 'body' => $value['body']];
 
                 }
 

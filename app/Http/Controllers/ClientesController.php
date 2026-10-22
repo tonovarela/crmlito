@@ -93,15 +93,15 @@ class ClientesController extends Controller
 
         $requisitosPedido = [];
 
-        $requisitosPedido = $request->selectReqEspeciales_Pedido;
+        $requisitosPedido = $request->selectReqEspeciales_Pedido ?? [];
 
         $requisitosEntrega = [];
 
-        $requisitosEntrega = $request->selectReqEspeciales_Entrega;
+        $requisitosEntrega = $request->selectReqEspeciales_Entrega ?? [];
 
         $requisitosCobro = [];
 
-        $requisitosCobro = $request->selectReqEspecialesF_Cobro;
+        $requisitosCobro = $request->selectReqEspecialesF_Cobro ?? [];
 
         $puedeDescargarPresupuesto = $request->puedeDescargarPresupuesto == 'on' ? 1 : 0;
 
@@ -398,15 +398,15 @@ class ClientesController extends Controller
 
         $requisitosPedido = [];
 
-        $requisitosPedido = $request->selectReqEspeciales_Pedido;
+        $requisitosPedido = $request->selectReqEspeciales_Pedido ?? [];
 
         $requisitosEntrega = [];
 
-        $requisitosEntrega = $request->selectReqEspeciales_Entrega;
+        $requisitosEntrega = $request->selectReqEspeciales_Entrega ?? [];
 
         $requisitosCobro = [];
 
-        $requisitosCobro = $request->selectReqEspecialesF_Cobro;
+        $requisitosCobro = $request->selectReqEspecialesF_Cobro ?? [];
 
         $fecha = new \DateTime();
 
@@ -640,7 +640,7 @@ class ClientesController extends Controller
                     $contacto_cxp = v_catContactos::where('idCliente', $id_cliente)->where('contactoCXP', 1)->orderBy('idContactoINT', 'DESC')->first();
                     $contacto_cfdi = v_catContactos::where('idCliente', $id_cliente)->where('CFD_Enviar', 1)->orderBy('idContactoINT', 'DESC')->first();
     
-                    if (count($contacto_principal) == 0) {
+                    if ($contacto_principal === null) {
                         $tratamiento_principal = null;
                         $nombre_principal = null;
                         $cargo_principal = null;
@@ -656,7 +656,7 @@ class ClientesController extends Controller
                         $email_principal = $contacto_principal->email;
                     }
     
-                    if (count($contacto_cxp) == 0) {
+                    if ($contacto_cxp === null) {
                         $tratamiento_cxp = null;
                         $nombre_cxp = null;
                         $cargo_cxp = null;
@@ -672,7 +672,7 @@ class ClientesController extends Controller
                         $email_cxp = $contacto_cxp->email;
                     }
     
-                    if (count($contacto_cfdi) == 0) {
+                    if ($contacto_cfdi === null) {
                         $tratamiento_cfdi = null;
                         $nombre_cfdi = null;
                         $cargo_cfdi = null;
@@ -859,7 +859,7 @@ class ClientesController extends Controller
                 $contacto_cxp = v_catContactos::where('idCliente', $id_cliente)->where('contactoCXP', 1)->orderBy('idContactoINT', 'DESC')->first();
                 $contacto_cfdi = v_catContactos::where('idCliente', $id_cliente)->where('CFD_Enviar', 1)->orderBy('idContactoINT', 'DESC')->first();
 
-                if (count($contacto_principal) == 0) {
+                if ($contacto_principal === null) {
                     $tratamiento_principal = null;
                     $nombre_principal = null;
                     $cargo_principal = null;
@@ -875,7 +875,7 @@ class ClientesController extends Controller
                     $email_principal = $contacto_principal->email;
                 }
 
-                if (count($contacto_cxp) == 0) {
+                if ($contacto_cxp === null) {
                     $tratamiento_cxp = null;
                     $nombre_cxp = null;
                     $cargo_cxp = null;
@@ -891,7 +891,7 @@ class ClientesController extends Controller
                     $email_cxp = $contacto_cxp->email;
                 }
 
-                if (count($contacto_cfdi) == 0) {
+                if ($contacto_cfdi === null) {
                     $tratamiento_cfdi = null;
                     $nombre_cfdi = null;
                     $cargo_cfdi = null;
@@ -1304,7 +1304,7 @@ class ClientesController extends Controller
             $contacto_cxp = v_catContactos::where('idCliente', $request->id)->where('contactoCXP', 1)->orderBy('idContactoINT', 'DESC')->first();
             $contacto_cfdi = v_catContactos::where('idCliente', $request->id)->where('CFD_Enviar', 1)->orderBy('idContactoINT', 'DESC')->first();
 
-            if (count($contacto_principal) == 0) {
+            if ($contacto_principal === null) {
                 $tratamiento_principal = null;
                 $nombre_principal = null;
                 $cargo_principal = null;
@@ -1320,7 +1320,7 @@ class ClientesController extends Controller
                 $email_principal = $contacto_principal->email;
             }
 
-            if (count($contacto_cxp) == 0) {
+            if ($contacto_cxp === null) {
                 $tratamiento_cxp = null;
                 $nombre_cxp = null;
                 $cargo_cxp = null;
@@ -1336,7 +1336,7 @@ class ClientesController extends Controller
                 $email_cxp = $contacto_cxp->email;
             }
 
-            if (count($contacto_cfdi) == 0) {
+            if ($contacto_cfdi === null) {
                 $tratamiento_cfdi = null;
                 $nombre_cfdi = null;
                 $cargo_cfdi = null;

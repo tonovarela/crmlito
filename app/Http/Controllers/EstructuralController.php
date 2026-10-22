@@ -1143,7 +1143,7 @@ class EstructuralController extends Controller
             $ticket_atendiendose = v_Estructural::where('Asignado', $nombre_asignado)->where('Estado', 'ATENDIENDOSE')->first();
         }
 
-        if (count($ticket_atendiendose) > 0) {
+        if ($ticket_atendiendose !== null) {
             DB::statement('exec sp_UpdateEstatusESTR ?, ?, ?, ?, ?, ?', [
                 $ticket_atendiendose->Id_Ticket,
                 'PAUSADO',
@@ -1165,12 +1165,12 @@ class EstructuralController extends Controller
 
         $ticket_cotizacion = v_Estructural::where('cotizacion', 1)->where('Id_Ticket', $request->id)->where('FolioOportunidad', null)->first();
 
-        if (count($ticket_cotizacion) > 0) {
+        if ($ticket_cotizacion !== null) {
             $id_Equipo = DB::table('v_catEquiposIntegrantes')->where('Nombre', $ticket_cotizacion->Agente)->get();
             $id_ClienteINT = Clientes::where('idCliente', $ticket_cotizacion->idCliente)->first();
             $id_Contacto = Contactos::where('idClienteINT', $id_ClienteINT->ClienteINT)->where('activo', 1)->first();
     
-            if ($request->estatus == 'CERRADO' && count($ticket_cotizacion) > 0) {
+            if ($request->estatus == 'CERRADO' && $ticket_cotizacion !== null) {
                 $fecha = new \DateTime();
                 $maquila = '';
                 
@@ -1251,7 +1251,7 @@ class EstructuralController extends Controller
             }
             $cuenta_cc3 = $alertasPlantillas[14]->Destinatario;
             $subject = $alertasPlantillas[14]->Asunto;
-            if (count($ticket_cotizacion) > 0){
+            if ($ticket_cotizacion !== null){
                 $mensaje = $alertasPlantillas[14]->Mensaje . ' y se generó una nueva Oportunidad con base en este Ticket';
             } else {
                 $mensaje = $alertasPlantillas[14]->Mensaje;

@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Http\Modelos\Llamadas;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
 class HoyLlamadas extends Command
@@ -47,7 +48,7 @@ class HoyLlamadas extends Command
         if ($llamadas != null) {
             foreach ($llamadas as $llamada) {
     
-                $message =  'Llamar a ' . str_limit($llamada->ContactoPrincipal, 17, '...') . ' de ' . str_limit($llamada->razonsocial, 20, '...') . ' a las ' . $llamada->Hora . ' al ' . $llamada->Telefonos . ' , EXT. ' . $llamada->Extencion . ' para ' . str_limit($llamada->asuntoLugar, 50, '...');
+                $message =  'Llamar a ' . Str::limit($llamada->ContactoPrincipal, 17, '...') . ' de ' . Str::limit($llamada->razonsocial, 20, '...') . ' a las ' . $llamada->Hora . ' al ' . $llamada->Telefonos . ' , EXT. ' . $llamada->Extencion . ' para ' . Str::limit($llamada->asuntoLugar, 50, '...');
                 $celular_usuario = $llamada->numero_celular;
                 $recipient = '{ "msisdn":"' . $celular_usuario . '"}';
                 $auth_basic = base64_encode(config('services.labsmobile.user') . ":" . config('services.labsmobile.token'));

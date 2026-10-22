@@ -1300,4 +1300,4 @@
     </form>
 </div>
 <script src=" {{ asset('js/elementos_presupuestados.js') }} " defer></script>
-@include('elementos_presupuestados.mod_paper') @endsection
+@include('elementos_presupuestados.mod_Paper') @endsection

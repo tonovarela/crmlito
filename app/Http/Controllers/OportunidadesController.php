@@ -34,7 +34,7 @@ use App\Http\Modelos\v_ElementosPresupuestados_All;
 use App\Http\Modelos\v_ordenesMetricsAll;
 use App\Http\Vistas\v_DocumentosOportunidades;
 use App\Http\Vistas\v_Estructural;
-use App\http\vistas\v_OportunidadesGrid;
+use App\Http\Vistas\v_OportunidadesGrid;
 use App\Http\Vistas\v_presupuestosMetricsAll;
 use App\Mail\SendMail;
 use App\Mail\SendMailDocumento;
@@ -108,7 +108,7 @@ class OportunidadesController extends Controller
             $crearTickets = session('crearEstructural');
 
             if ($permisos[$i]->descAccion == 'AccesoModulo' && $permisos[$i]->descNivelPerm == 'Todo') {
-                return view('oportunidades.index', compact('crearOpor', 'editarOpor', 'editarOportunidades', 'combo_clientes', 'estatus', 'folio', 'tipos', 'previsiones', 'probabilidades', 'equipos', 'combo_vendedores', 'motivoPerdida', 'id_usuario', 'combo_cotizadores', 'idrol', 'crearTickets', 'STOport', 'Asignados', 'STS', 'cotizadores'));
+                return view('oportunidades.index', compact('crearOpor', 'editarOpor', 'editarOportunidades', 'combo_clientes', 'estatus', 'folio', 'tipos', 'previsiones', 'probabilidades', 'equipos', 'combo_vendedores', 'motivoPerdida', 'id_usuario', 'combo_cotizadores', 'idrol', 'crearTickets', 'Asignados', 'STS', 'cotizadores'));
             } else if ($permisos[$i]->descAccion == 'AccesoModulo' && $permisos[$i]->descNivelPerm == 'Ninguno') {
                 return redirect()->route('Dashboard');
             }
@@ -325,7 +325,7 @@ class OportunidadesController extends Controller
 
         $elemeto_PR = relOport_ElementoP::where('idOportunidad', $request->idOportunidad)->first();
 
-        if (count($elemeto_PR) > 0) {
+        if ($elemeto_PR !== null) {
             $elemetoP = v_ElementosPresupuestados_All::where('idElementoP', $elemeto_PR->idElementoP)->first();
 
             $idTipoItem = $elemetoP->idTipoItem;
@@ -528,7 +528,7 @@ class OportunidadesController extends Controller
 
             $this->bitacora('Elementos P', 'Clonar ', 'Elemento ', $elemento_id, $this->loginUsuario(), 5);
 
-            if (count($elemeto_PR) > 0) {
+            if ($elemeto_PR !== null) {
                 DB::statement(
                     'exec spInsertRelacionEPOportunidad ?, ?, ?, ?',
                     [
@@ -3561,12 +3561,13 @@ class OportunidadesController extends Controller
         // config(['mail.encryption' => 'tls']);
 
         // Realizamos la configuración del correo para que se envie el correo a la persona correspondiente
-        config(['mail.driver' => 'smtp']);
-        config(['mail.host' => 'smtp.gmail.com']);
-        config(['mail.port' => '587']);
-        config(['mail.username' => $cuenta_agente]);
-        config(['mail.password' => $password]);
-        config(['mail.encryption' => 'tls']);
+        config(['mail.default' => 'smtp']);
+        config(['mail.mailers.smtp.host' => 'smtp.gmail.com']);
+        config(['mail.mailers.smtp.port' => 587]);
+        config(['mail.mailers.smtp.username' => $cuenta_agente]);
+        config(['mail.mailers.smtp.password' => $password]);
+        // Descarta el mailer ya creado para que tome las credenciales nuevas
+        Mail::purge('smtp');
 
         // Enviamos el correo ya con los datos previos
         Mail::send(new SendMailDocumento($subject, $mensaje, $caminhoDoArquivo, $cuenta_agente, $cuentas, $cuentas_cc, $Nombre, $password, $nombre_firma, $ruta_firma, $attachments, $docAdjunto));

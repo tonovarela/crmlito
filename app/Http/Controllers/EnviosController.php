@@ -130,7 +130,7 @@ class EnviosController extends Controller
                 $editarEnvios = session('editarEnvios');
 
                 if ($permisos[$i]->descAccion == 'AccesoModulo' && $permisos[$i]->descNivelPerm == 'Todo') {
-                    return view('oportunidades_envios.index', compact('crearEnv', 'editarEnv', 'editarEnvios', 'combo_clientes', 'combo_clientes_all', 'estatus', 'folio', 'folio_envio', 'tipos', 'equipos', 'combo_vendedores', 'motivoPerdida', 'id_usuario', 'unidad_medida', 'nombre_usuario', 'agentes', 'oportunidades', 'agente_id', 'rol'));
+                    return view('oportunidades_envios.index', compact('crearEnv', 'editarEnv', 'editarEnvios', 'combo_clientes', 'estatus', 'folio', 'folio_envio', 'tipos', 'equipos', 'combo_vendedores', 'motivoPerdida', 'id_usuario', 'unidad_medida', 'nombre_usuario', 'agentes', 'oportunidades', 'agente_id', 'rol'));
                 } else if ($permisos[$i]->descAccion == 'AccesoModulo' && $permisos[$i]->descNivelPerm == 'Ninguno') {
                     return redirect()->route('Dashboard');
                 }

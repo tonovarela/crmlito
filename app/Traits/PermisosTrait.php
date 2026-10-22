@@ -6,6 +6,7 @@ use App\Http\Modelos\CarCotizadores;
 use App\Http\Modelos\CarCustomers;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 trait PermisosTrait
 {
@@ -681,12 +682,9 @@ trait PermisosTrait
         // config(['mail.password' => '934eb3e2544936']);
         // config(['mail.encryption' => 'tls']);
 
-        config(['mail.driver' => 'smtp']);
-        config(['mail.host' => 'smtp.gmail.com']);
-        config(['mail.port' => '587']);
-        config(['mail.username' => 'noreply@litoprocess.com']);
-        config(['mail.password' => 'xoiknkhpofzaytcu']);
-        config(['mail.encryption' => 'tls']);
+        // Cuenta noreply: MAIL_* del .env (Laravel 12 usa mail.mailers.smtp.*)
+        config(['mail.default' => 'smtp']);
+        Mail::purge('smtp');
 
     }
 }

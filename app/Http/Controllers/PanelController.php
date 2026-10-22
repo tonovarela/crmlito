@@ -169,7 +169,7 @@ class PanelController extends Controller
         //     // $crearReunion = session('crearReunion');
         //     // $editarReunion = session('editarReunion');
 
-        //     // return view('panel', compact('datos_usuario', 'cards', 'cardsLlamadas', 'cardsReuniones', 'Eficiencia', 'List', 'permisos', 'Agentes', 'Rol', 'List_Llamadas', 'List_Reuniones', 'crearLlamada', 'editarLlamada', 'crearReunion', 'editarReunion', 'nombre_usuario', 'folio', 'id_usuario', 'rol', 'agente_id', 'combo_clientes', 'equipos', 'combo_vendedores', 'estados', 'direcciones', 'tipoRepeticionLlamadas', 'horasRecordatorio', 'idEquipo_idAgente', 'active', 'show', 'selected', 'años', 'año', 'mes', 'meses'));
+        //     // return view('panel', compact('datos_usuario', 'cards', 'cardsLlamadas', 'cardsReuniones', 'List', 'permisos', 'Agentes', 'Rol', 'List_Llamadas', 'List_Reuniones', 'crearLlamada', 'editarLlamada', 'crearReunion', 'editarReunion', 'nombre_usuario', 'folio', 'id_usuario', 'rol', 'agente_id', 'combo_clientes', 'equipos', 'combo_vendedores', 'estados', 'direcciones', 'tipoRepeticionLlamadas', 'horasRecordatorio', 'idEquipo_idAgente', 'active', 'show', 'selected', 'años', 'año', 'mes', 'meses'));
         //     return view('pagina_panel');
         // }
     }
@@ -223,6 +223,10 @@ class PanelController extends Controller
                 $fecha_años = Carbon::parse($años_o->fecCreacion)->format('Y');
                 $años = Arr::add($años, $fecha_años, $fecha_años);
             }
+
+            // No todos los roles llenan estos listados; en PHP 8 compact() falla si no existen
+            $List = collect();
+            $List_tripas = collect();
 
             $permisos =  $this->permisosXusuario($user);
 
@@ -427,7 +431,7 @@ class PanelController extends Controller
             }
             /******************************************/
 
-            return view('panel', compact('datos_usuario', 'cards', 'cardsLlamadas', 'cardsReuniones', 'Eficiencia', 'List', 'permisos', 'Agentes', 'Rol', 'List_Llamadas', 'List_Reuniones', 'crearLlamada', 'editarLlamada', 'crearReunion', 'editarReunion', 'nombre_usuario', 'folio', 'id_usuario', 'rol', 'agente_id', 'combo_clientes', 'equipos', 'combo_vendedores', 'estados', 'direcciones', 'tipoRepeticionLlamadas', 'horasRecordatorio', 'idEquipo_idAgente', 'active', 'show', 'selected', 'años', 'año', 'mes', 'meses', 'List_ventas', 'List_tripas'));
+            return view('panel', compact('datos_usuario', 'cards', 'cardsLlamadas', 'cardsReuniones', 'List', 'permisos', 'Agentes', 'Rol', 'List_Llamadas', 'List_Reuniones', 'crearLlamada', 'editarLlamada', 'crearReunion', 'editarReunion', 'nombre_usuario', 'folio', 'id_usuario', 'rol', 'agente_id', 'combo_clientes', 'equipos', 'combo_vendedores', 'estados', 'direcciones', 'tipoRepeticionLlamadas', 'horasRecordatorio', 'idEquipo_idAgente', 'active', 'show', 'selected', 'años', 'año', 'mes', 'meses', 'List_ventas', 'List_tripas'));
             // }
         }
     }
@@ -686,7 +690,7 @@ class PanelController extends Controller
         //     $crearReunion = session('crearReunion');
         //     $editarReunion = session('editarReunion');
 
-        //     return view('panel_2', compact('datos_usuario', 'cards', 'cardsLlamadas', 'cardsReuniones', 'Eficiencia', 'List', 'permisos', 'Agentes', 'Rol', 'List_Llamadas', 'List_Reuniones', 'crearLlamada', 'editarLlamada', 'crearReunion', 'editarReunion', 'nombre_usuario', 'folio', 'id_usuario', 'rol', 'agente_id', 'combo_clientes', 'equipos', 'combo_vendedores', 'estados', 'direcciones', 'tipoRepeticionLlamadas', 'horasRecordatorio', 'idEquipo_idAgente', 'active', 'show', 'selected'));
+        //     return view('panel_2', compact('datos_usuario', 'cards', 'cardsLlamadas', 'cardsReuniones', 'List', 'permisos', 'Agentes', 'Rol', 'List_Llamadas', 'List_Reuniones', 'crearLlamada', 'editarLlamada', 'crearReunion', 'editarReunion', 'nombre_usuario', 'folio', 'id_usuario', 'rol', 'agente_id', 'combo_clientes', 'equipos', 'combo_vendedores', 'estados', 'direcciones', 'tipoRepeticionLlamadas', 'horasRecordatorio', 'idEquipo_idAgente', 'active', 'show', 'selected'));
         // }
     }
 

@@ -1719,9 +1719,9 @@ class ElementosPresupuestadosV2Controller extends Controller
                     'cat_sub_categoria_fsc_id' => isset($elemento['fsc']['subcategoria']) && $elemento['fsc']['subcategoria'] != 'null' ? $elemento['fsc']['subcategoria'] : 0,
                 ]);
 
-                $totalGeneral += ((int)str_replace(',', '', $elemento['cantidad_1']) * str_replace(',', '', $elemento['precio_1'])) +
-                                ((int)str_replace(',', '', $elemento['cantidad_2']) * str_replace(',', '', $elemento['precio_2'])) +
-                                ((int)str_replace(',', '', $elemento['cantidad_3']) * str_replace(',', '', $elemento['precio_3']));
+                $totalGeneral += ((int)str_replace(',', '', $elemento['cantidad_1']) * (float)str_replace(',', '', $elemento['precio_1'])) +
+                                ((int)str_replace(',', '', $elemento['cantidad_2']) * (float)str_replace(',', '', $elemento['precio_2'])) +
+                                ((int)str_replace(',', '', $elemento['cantidad_3']) * (float)str_replace(',', '', $elemento['precio_3']));
                 
                 foreach ($elemento['adicionales'] as $adicional) {
                     (new SolicitudCotizacionController())->storeAdditionalQuantitiesAndPrices([
@@ -1732,7 +1732,7 @@ class ElementosPresupuestadosV2Controller extends Controller
                         'solicitud_cotizacion_id' => $elemento['idElementoP'],
                     ]);
 
-                    $totalAdicionales += (int)str_replace(',', '', $adicional['cantidad']) * str_replace(',', '', $adicional['precio']);
+                    $totalAdicionales += (int)str_replace(',', '', $adicional['cantidad']) * (float)str_replace(',', '', $adicional['precio']);
                 }
 
                 $totalElemento += $totalGeneral + $totalAdicionales;

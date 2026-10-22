@@ -1,6 +1,6 @@
 <?php
 
-namespace App\http\vistas;
+namespace App\Http\Vistas;
 
 use Illuminate\Database\Eloquent\Model;
 

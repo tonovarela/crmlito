@@ -215,7 +215,7 @@ class OportunidadesController extends Controller
         $oportunidad_nueva = Oportunidades::where('folio', $folio)->first();
         $elemento_presupuestado = relOport_ElementoP::where('idOportunidad', $request->idOportunidad)->first();
 
-        if (count($elemento_presupuestado) > 0) {
+        if ($elemento_presupuestado !== null) {
             DB::statement(
                 'exec spInsertRelacionEPOportunidad ?, ?, ?, ?',
                 [

@@ -1,0 +1,11 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    level: 0
+    paths:
+        - app
+        - routes
+    excludePaths:
+        - app/Http/Controllers/OportunidadesController copy.php
+    tmpDir: storage/framework/cache/phpstan
