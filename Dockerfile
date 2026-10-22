@@ -33,11 +33,10 @@ RUN set -eux; \
     apt-get purge -y --auto-remove gnupg; \
     rm -rf /var/lib/apt/lists/* /tmp/pear
 
-# Apache: la app se sirve en /crmlito (ver docker/apache-vhost.conf)
+# Apache: la app se sirve en la raíz (ver docker/apache-vhost.conf)
 COPY docker/apache-vhost.conf /etc/apache2/sites-available/000-default.conf
 RUN set -eux; \
-    mkdir -p /var/www/empty; \
-    a2enmod rewrite headers alias; \
+    a2enmod rewrite headers; \
     printf 'ServerTokens Prod\nServerSignature Off\n' > /etc/apache2/conf-available/zz-security.conf; \
     a2enconf zz-security
 

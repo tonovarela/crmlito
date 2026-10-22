@@ -7,7 +7,7 @@ services:
       target: base
     image: crmlito:dev
     ports:
-      - "8080:80"   # http://localhost:8080/crmlito
+      - "8080:80"   # http://localhost:8080
     env_file: .env
     environment:
       PHP_OPCACHE_VALIDATE_TIMESTAMPS: ${PHP_OPCACHE_VALIDATE_TIMESTAMPS:-1}

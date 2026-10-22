@@ -5848,9 +5848,9 @@ function agregarCambioEspecificacion(idEP, nombreEP = '', tipo = 1) {
         liga = 'https://servicios.litoprocess.com/crmlito/generarPdfElementoInter/' + idEP + '/pdf';
         // liga = 'http://127.0.0.1:8002/generarPdfElementoInter/' + idEP + '/pdf';
     } else if (dominio == "192.168.2.222") {
-        liga = 'http://' + dominio + '/crmlito/generarPdfElementoInter/' + idEP + '/pdf';
+        liga = base_path + 'generarPdfElementoInter/' + idEP + '/pdf';
     } else {
-        liga = 'https://' + dominio + '/crmlito/generarPdfElementoInter/' + idEP + '/pdf';
+        liga = base_path + 'generarPdfElementoInter/' + idEP + '/pdf';
     }
 
     // Cargamos el PDF correspondiente
