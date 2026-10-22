@@ -415,10 +415,6 @@ Route::get('/tblClientesOport/{id}', 'ClientesController@tblClientesOport')->nam
 ///-------------------------------
 
 
-Route::get('import-export-view', 'ExcelController@importExportView')->name('import.export.view');
-
-Route::post('import-file', 'ExcelController@importFile')->name('import.file');
-
 Route::get('export-file/{type}', 'ExcelController@exportFile')->name('export.file');
 
 Route::resource('requisitos', 'RequisitosController')->except('create')->names([
