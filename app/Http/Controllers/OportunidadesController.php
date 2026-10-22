@@ -3578,6 +3578,9 @@ class OportunidadesController extends Controller
                 unlink($file['path']);
             }
         }
+        if (file_exists($caminhoDoArquivo)) {
+            unlink($caminhoDoArquivo);
+        }
 
         return response()->json(['status' => 'success', 'message' => 'Correo enviado correctamente.']);
 
