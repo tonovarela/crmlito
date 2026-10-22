@@ -200,7 +200,7 @@ class PanelController extends Controller
             $fecha = new \DateTime();
             $dia = $fecha->format('D');
             $this->permisos();
-            $datos_usuario = DB::select('exec GetUsuario @Login=' . $user);
+            $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $user]);
             session(['nombre' => $datos_usuario[0]->Nombre]);
             session(['idUsuario' => $datos_usuario[0]->Id_Usuario]);
 
@@ -230,7 +230,7 @@ class PanelController extends Controller
 
             $permisos =  $this->permisosXusuario($user);
 
-            $datos_usuario = DB::select('exec GetUsuario @Login=' . $user);
+            $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $user]);
             session(['nombre' => $datos_usuario[0]->Nombre]);
             session(['idUsuario' => $datos_usuario[0]->Id_Usuario]);
             $Rol = $this->idRol();
@@ -450,7 +450,7 @@ class PanelController extends Controller
     {
         $rol = $this->idRol();
         $user = session('usuario');
-        $datos_usuario = DB::select('exec GetUsuario @Login=' . $user);
+        $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $user]);
         $id_usuario = $datos_usuario[0]->Id_Usuario;
         switch ($rol) {
             case 2;
@@ -493,7 +493,7 @@ class PanelController extends Controller
         try {
             $rol = $this->idRol();
             $user = session('usuario');
-            $datos_usuario = DB::select('exec GetUsuario @Login=' . $user);
+            $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $user]);
             $id_usuario = $datos_usuario[0]->Id_Usuario;
             switch ($rol) {
                 case 2;

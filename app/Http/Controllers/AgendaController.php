@@ -41,7 +41,7 @@ class AgendaController extends Controller
 
             $permisos_count = count($permisos_llamadas);
 
-            $datos_usuario = DB::select('exec GetUsuario @Login=' . $this->loginUsuario());
+            $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $this->loginUsuario()]);
             $id_usuario = $datos_usuario[0]->Id_Usuario;
             $nombre_usuario = $datos_usuario[0]->Nombre;
             $rol = $this->idRol();

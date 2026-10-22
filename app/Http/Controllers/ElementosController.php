@@ -71,7 +71,7 @@ class ElementosController extends Controller
 
             $permisos_count = count($permisos);
 
-            $datos_usuario = DB::select('exec GetUsuario @Login=' . $Login);
+            $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $Login]);
 
             $id_usuario = $datos_usuario[0]->Id_Usuario;
 

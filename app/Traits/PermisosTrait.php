@@ -13,7 +13,7 @@ trait PermisosTrait
     public static function idUsuario() {
         $Login = session('usuario');
         
-        $datos_usuario = DB::select('exec GetUsuario @Login=' . $Login);
+        $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $Login]);
         $id_usuario = $datos_usuario[0]->Id_Usuario;
 
         return $id_usuario;
@@ -22,7 +22,7 @@ trait PermisosTrait
     public static function datosUsuario() {
         $Login = session('usuario');
         
-        $datos_usuario = DB::select('exec GetUsuario @Login=' . $Login);
+        $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $Login]);
 
         return $datos_usuario;
     }
@@ -162,7 +162,7 @@ trait PermisosTrait
 
     public static function idRol() {
         $Login = session('usuario');
-        $datos_usuario = DB::select('exec GetUsuario @Login=' . $Login);
+        $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $Login]);
         $roles = DB::select('exec GetRolesXUsuario @idUsuario=' . $datos_usuario[0]->Id_Usuario);
         $id_rol = $roles[0]->idRol;
 
@@ -177,7 +177,7 @@ trait PermisosTrait
     
     public static function canAccessModuloComisiones() {
         $Login = session('usuario');
-        $datos_usuario = DB::select('exec GetUsuario @Login=' . $Login);
+        $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $Login]);
         $estatusComLito = $datos_usuario[0]->estatusComisionesLito;
 
         return $estatusComLito;
@@ -185,7 +185,7 @@ trait PermisosTrait
     
     public static function tipoUsuarioModuloComisiones() {
         $Login = session('usuario');
-        $datos_usuario = DB::select('exec GetUsuario @Login=' . $Login);
+        $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $Login]);
         $tipoUsuario = $datos_usuario[0]->tipoUsuarioComisionesLito;
 
         return $tipoUsuario;
@@ -637,7 +637,7 @@ trait PermisosTrait
     {
     
         // var_dump(session('usuario'));exit();
-        $datos_usuario = DB::select('exec GetUsuario @Login=' . $user);
+        $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $user]);
         $roles = DB::select('exec GetPermisosXUsuario @Id_usuario=' . $datos_usuario[0]->Id_Usuario);
         $idModulo = $roles;
 

@@ -34,7 +34,7 @@ class ElementoPresupuestadoDAO
         $dto->combo_tipolaminado= DB::table('catEPtipoLaminado')->get();
         $dto->combo_tipoencuadernado= DB::table('catEPtipoEncuadernado')->get();
         $dto->combo_tipoPapelItem= EPcomboSustratos::select('clasificacion')->distinct()->get();
-        $datos_usuario = DB::select('exec GetUsuario @Login=' . $Login);
+        $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $Login]);
         $dto->id_usuario = $datos_usuario[0]->Id_Usuario;
         $dto->idOportunidad = $id;
         return $dto;

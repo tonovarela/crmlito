@@ -30,7 +30,7 @@ class ContactosController extends Controller
         // } else if (count($this->entregasSinRespuesta()) > 0) {
         //     return view('lista_entregas');
         // } else if ($dia == $this->diaSemanaEN() || $dia == $this->diaSemanaMX() || count($this->entregasSinRespuesta()) == 0) {
-            $datos_usuario = DB::select('exec GetUsuario @Login=' . $Login);
+            $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $Login]);
             $id_usuario = $datos_usuario[0]->Id_Usuario;
             $combo_clientes = DB::select('exec GetClientesCombo');
             $permisos = $this->permisosModulo('Cuentas');
@@ -58,7 +58,7 @@ class ContactosController extends Controller
         // return $request;
 
         $Login = session('usuario');
-        $datos_usuario = DB::select('exec GetUsuario @Login=' . $Login);
+        $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $Login]);
         $id_usuario = $datos_usuario[0]->Id_Usuario;
 
         $fecha = new \DateTime();
@@ -125,7 +125,7 @@ class ContactosController extends Controller
     public function update(Request $request)
     {
         $Login = session('usuario');
-        $datos_usuario = DB::select('exec GetUsuario @Login=' . $Login);
+        $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $Login]);
         $id_usuario = $datos_usuario[0]->Id_Usuario;
 
         $fecha = new \DateTime();
@@ -193,7 +193,7 @@ class ContactosController extends Controller
     public function apiContactos(Request $request)
     {
         $Login = session('usuario');
-        $datos_usuario = DB::select('exec GetUsuario @Login=' . $Login);
+        $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $Login]);
         $id_usuario = $datos_usuario[0]->Id_Usuario;
 
         session(['id_usuario_suc' => $id_usuario]);
@@ -332,7 +332,7 @@ class ContactosController extends Controller
     public function apiContactosTodos(Request $request)
     {
         $Login = session('usuario');
-        $datos_usuario = DB::select('exec GetUsuario @Login=' . $Login);
+        $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $Login]);
         $id_usuario = $datos_usuario[0]->Id_Usuario;
 
         $permisos = DB::select('exec GetPermisos ?, ?', [$Login, 'Cuentas']);
@@ -388,7 +388,7 @@ class ContactosController extends Controller
     public function updatePrincipal(Request $request)
     {
         $Login = session('usuario');
-        $datos_usuario = DB::select('exec GetUsuario @Login=' . $Login);
+        $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $Login]);
         $idUsuario = $datos_usuario[0]->Id_Usuario;
 
         $cliente = DB::select('exec GetClienteXId @idClienteINT=' . $request->idCliente);
@@ -434,7 +434,7 @@ class ContactosController extends Controller
     public function updateCXP(Request $request)
     {
         $Login = session('usuario');
-        $datos_usuario = DB::select('exec GetUsuario @Login=' . $Login);
+        $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $Login]);
         $idUsuario = $datos_usuario[0]->Id_Usuario;
 
         $fecha = new \DateTime();
@@ -472,7 +472,7 @@ class ContactosController extends Controller
     {
         // return $request;
         $Login = session('usuario');
-        $datos_usuario = DB::select('exec GetUsuario @Login=' . $Login);
+        $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $Login]);
         $idUsuario = $datos_usuario[0]->Id_Usuario;
 
         $fecUltCambio = new \DateTime();
@@ -512,7 +512,7 @@ class ContactosController extends Controller
 
         // return $request;
         $Login = session('usuario');
-        $datos_usuario = DB::select('exec GetUsuario @Login=' . $Login);
+        $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $Login]);
         $idUsuario = $datos_usuario[0]->Id_Usuario;
 
         $fecUltCambio = new \DateTime();

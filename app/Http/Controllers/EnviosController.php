@@ -62,7 +62,7 @@ class EnviosController extends Controller
         // } else if (count($this->entregasSinRespuesta()) > 0) {
         //     return view('lista_entregas');
         // } else if ($dia == $this->diaSemanaEN() || $dia == $this->diaSemanaMX() || count($this->entregasSinRespuesta()) == 0) {
-            $datos_usuario = DB::select('exec GetUsuario @Login=' . $this->loginUsuario());
+            $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $this->loginUsuario()]);
 
             $id_usuario = $datos_usuario[0]->Id_Usuario;
 
@@ -140,7 +140,7 @@ class EnviosController extends Controller
 
     public function getClientes(Request $request)
     {
-        $datos_usuario = DB::select('exec GetUsuario @Login=' . $this->loginUsuario());
+        $datos_usuario = DB::select('exec GetUsuario @Login=:Login', ['Login' => $this->loginUsuario()]);
 
         $id_usuario = $datos_usuario[0]->Id_Usuario;
 
