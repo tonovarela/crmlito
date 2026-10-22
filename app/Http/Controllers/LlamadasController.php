@@ -191,7 +191,7 @@ class LlamadasController extends Controller
 
     private function sendMessage($message, $recipient)
     {
-        $auth_basic = base64_encode(env("LABSMOBILE_USER") . ":" . env("LABSMOBILE_API_TOKEN"));
+        $auth_basic = base64_encode(config('services.labsmobile.user') . ":" . config('services.labsmobile.token'));
         $curl = curl_init();
 
         curl_setopt_array($curl, array(

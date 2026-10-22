@@ -33,12 +33,11 @@ RUN set -eux; \
     apt-get purge -y --auto-remove gnupg; \
     rm -rf /var/lib/apt/lists/* /tmp/pear
 
-# Apache: DocumentRoot en public/ y mod_rewrite para el .htaccess de Laravel
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+# Apache: la app se sirve en /crmlito (ver docker/apache-vhost.conf)
+COPY docker/apache-vhost.conf /etc/apache2/sites-available/000-default.conf
 RUN set -eux; \
-    sed -ri 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf; \
-    sed -ri 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf; \
-    a2enmod rewrite headers; \
+    mkdir -p /var/www/empty; \
+    a2enmod rewrite headers alias; \
     printf 'ServerTokens Prod\nServerSignature Off\n' > /etc/apache2/conf-available/zz-security.conf; \
     a2enconf zz-security
 

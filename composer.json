@@ -1,34 +1,29 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
-    "license": "MIT",
+    "name": "litoprocess/crmlito",
+    "description": "Candy CRM",
     "type": "project",
+    "license": "proprietary",
     "require": {
-        "php": ">=7.0.0",
-        "barryvdh/laravel-dompdf": "^0.8.7",
-        "fideloper/proxy": "~3.3",
-        "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0",
-        "maatwebsite/excel": "^3.1",
-        "php-flasher/flasher-laravel": "^1.10",
-        "yajra/laravel-datatables-oracle": "^8.13"
+        "php": "^8.3",
+        "barryvdh/laravel-dompdf": "^3.1",
+        "laravel/framework": "^12.0",
+        "laravel/tinker": "^2.10",
+        "maatwebsite/excel": "^3.1.64",
+        "yajra/laravel-datatables-oracle": "^12.0"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "~3.1",
-        "filp/whoops": "~2.0",
-        "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "~1.0",
-        "phpunit/phpunit": "~6.0",
-        "symfony/thanks": "^1.0"
+        "barryvdh/laravel-debugbar": "^3.15",
+        "fakerphp/faker": "^1.23",
+        "larastan/larastan": "^3.0",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^8.6",
+        "phpunit/phpunit": "^11.5"
     },
     "autoload": {
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
         },
         "files": ["app/funciones.php"]
     },
@@ -37,30 +32,31 @@
             "Tests\\": "tests/"
         }
     },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ]
+    },
     "extra": {
         "laravel": {
             "dont-discover": []
         }
     },
-    "scripts": {
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "@php artisan key:generate"
-        ],
-        "post-autoload-dump": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover"
-        ]
-    },
     "config": {
+        "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,
-        "optimize-autoloader": true,
+        "platform": {
+            "php": "8.3.36"
+        },
         "allow-plugins": {
-            "kylekatarnls/update-helper": true,
-            "symfony/thanks": true
+            "php-http/discovery": true
         }
-    }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }

@@ -50,7 +50,7 @@ class HoyLlamadas extends Command
                 $message =  'Llamar a ' . str_limit($llamada->ContactoPrincipal, 17, '...') . ' de ' . str_limit($llamada->razonsocial, 20, '...') . ' a las ' . $llamada->Hora . ' al ' . $llamada->Telefonos . ' , EXT. ' . $llamada->Extencion . ' para ' . str_limit($llamada->asuntoLugar, 50, '...');
                 $celular_usuario = $llamada->numero_celular;
                 $recipient = '{ "msisdn":"' . $celular_usuario . '"}';
-                $auth_basic = base64_encode(env("LABSMOBILE_USER") . ":" . env("LABSMOBILE_API_TOKEN"));
+                $auth_basic = base64_encode(config('services.labsmobile.user') . ":" . config('services.labsmobile.token'));
                 $curl = curl_init();
     
                 curl_setopt_array($curl, array(

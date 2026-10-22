@@ -40,7 +40,7 @@ Route::post('/changePrecioNuevo', 'ElementosPresupuestadosV2Controller@changePre
 Route::post('/marcarRealizado', 'ElementosPresupuestadosV2Controller@marcarRealizado')->name('marcarRealizado');
 Route::post('/marcarRealizadoCE', 'ElementosPresupuestadosV2Controller@marcarRealizadoCE')->name('marcarRealizadoCE');
 
-Route::get('/get-oportunidades', 'ElementosPresupuestadosApiController@getOportunidades')->name('getOportunidades');
+Route::get('/get-oportunidades', 'ElementosPresupuestadosApiController@getOportunidades')->name('getOportunidadesEP');
 Route::get('/get-oportunidades-general', 'ElementosPresupuestadosApiController@getOportunidadesGeneral')->name('getOportunidades');
 Route::get('/get-oportunidad', 'ElementosPresupuestadosApiController@getOportunidad')->name('getOportunidad');
 Route::get('/get-plantillas', 'ElementosPresupuestadosApiController@getPlantillas')->name('getPlantillas');

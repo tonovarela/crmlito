@@ -16,3 +16,5 @@ sftp-config.json
 /storage
 /public/manual
 /public/fontawesome
+.env.backup*
+

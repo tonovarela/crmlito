@@ -79,7 +79,7 @@ Route::patch('autorizarArchivoOportunidad', 'OportunidadesController@autorizarAr
 
 Route::patch('desautorizarArchivoOportunidad', 'OportunidadesController@desautorizarArchivoOportunidad')->name('oportunidad.desautorizarArchivoOportunidad');
 
-Route::get('getOportunidad', 'OportunidadesController@getOportunidad')->name('getOportunidad');
+Route::get('getOportunidad', 'OportunidadesController@getOportunidad')->name('oportunidades.getOportunidad');
 
 Route::get('getHollidays', 'OportunidadesController@getHollidays')->name('getHollidays');
 
@@ -252,7 +252,7 @@ Route::patch('actualizarNombreDocumento', 'OportunidadesController@actualizarNom
 
 Route::post('api/upDocsOportunidades', 'OportunidadesController@updocoport');
 
-Route::patch('/deleteDocsOportunidades/', 'OportunidadesController@deleteDocOport')->name('oportunidad.deleteDocOport'); ///deleteFileDoics
+Route::patch('/deleteDocsOportunidades/', 'OportunidadesController@deleteDocOport')->name('oportunidad.deleteDocsOportunidades'); ///deleteFileDoics
 
 Route::get('/getDocumentosXidOportunidad/', 'OportunidadesController@getDocumentosXidOportunidad')->name('oportunidad.getDocumentosXidOportunidad');
 
@@ -568,7 +568,7 @@ Route::get('/clear-cache', function () {
  */
 // Rutas para la administración de pedidos
 Route::get('/admin-comisiones', 'AdminPedidosController@index')->name('Administracion de pedidos');
-Route::get('api/getPedidos', 'AdminPedidosController@getPedidos')->name('get-pedidos');
+Route::get('api/getPedidos', 'AdminPedidosController@getPedidos')->name('get-pedidos.index');
 Route::post('api/getPedidos/tbl3', 'AdminPedidosController@getPedidos')->name('get-pedidos');
 Route::post('/getConsecutivo', 'AdminPedidosController@getConsecutivo');
 Route::post('/updateComision', 'AdminPedidosController@updateComision');
