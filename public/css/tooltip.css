@@ -1,0 +1,152 @@
+.box-table:hover:before {
+    visibility: visible;
+    animation: fadeIn .5s;
+}
+
+.box-table:hover:after {
+    visibility: visible;
+    animation: fadeIn .5s;
+}
+
+.box-table::before {
+    background: #132f52;
+    border: 2px solid #fff;
+    color: #fff;
+    position: absolute;
+    padding: .3em;
+    visibility: hidden;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 0;
+    box-shadow: 0px 0px 10px 0px black;
+    ;
+}
+
+.btn_editar_oportunidad:hover:after,
+.btn_editar_cliente_opor:hover:after,
+.btn_con_maquila:hover:after,
+.btn_agregar_oportunidad:hover:after,
+.btn_editar_cliente:hover:after,
+.btn_editar_prospecto:hover:after {
+    content: "";
+    width: 13px;
+    height: 13px;
+    position: absolute;
+    border-top: 0px solid transparent;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    border-left: 0px solid transparent;
+    z-index: 1000;
+    animation: fadeIn .5s;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    background: #132f52;
+    box-shadow: 0px 0px 10px 0px black;
+    ;
+}
+
+.btn_editar_oportunidad:hover:after {
+    left: 133px;
+    top: -7px;
+}
+
+.btn_editar_cliente_opor:hover:after {
+    left: 113px;
+    top: -7px;
+}
+
+.btn_editar_cliente:hover:after,
+.btn_editar_prospecto:hover:after {
+    left: 50px;
+    top: -7px;
+}
+
+.btn_con_maquila:hover:after {
+    left: 35px;
+    top: -7px;
+}
+
+.btn_editar_oportunidad::before {
+    content: "Editar Oportunidad";
+    width: 170px;
+    margin-left: 0;
+    bottom: 100%;
+    text-transform: capitalize !important;
+    left: 120px;
+}
+
+.btn_editar_cliente::before {
+    content: "Editar Cliente";
+    width: 120px;
+    margin-left: 0;
+    bottom: 100%;
+}
+
+.btn_editar_prospecto::before {
+    content: "Editar Prospecto";
+    width: 140px;
+    margin-left: 0;
+    bottom: 100%;
+}
+
+.btn_agregar_oportunidad::before {
+    content: "Agregar Oportunidad";
+    width: 120px;
+    margin-right: 0;
+    bottom: 100%;
+}
+
+.btn_editar_cliente_opor::before {
+    content: "Editar Cliente";
+    width: 120px;
+    margin-left: 0;
+    bottom: 100%;
+    text-transform: capitalize !important;
+    left: 100px;
+}
+
+.btn_editar_contacto::before {
+    content: "Editar Contacto";
+    width: 150px;
+    margin-left: 155px;
+    top: -6px;
+}
+
+.btn_editar_sucursal::before {
+    content: "Editar Sucursal";
+    width: 150px;
+    margin-left: 155px;
+    top: -6px;
+}
+
+.btn_editar_envio::before {
+    content: "Editar Envío";
+    width: 150px;
+    margin-left: 155px;
+    top: -6px;
+}
+
+.btn_con_maquila::before {
+    content: "Con Maquila";
+    width: 120px;
+    margin-left: 0px;
+    bottom: 100%;
+}
+
+.box-table {
+    position: relative;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transition: all .1s ease;
+        /* transition: opacity 1s; */
+    }
+    100% {
+        opacity: 1;
+        transition: all .1s ease;
+    }
+}

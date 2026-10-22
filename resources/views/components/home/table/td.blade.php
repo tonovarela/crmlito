@@ -1,0 +1,1 @@
+<td class="px-6 py-1 border-b text-sm text-gray-700 {{ isset($adicionalClasses) ? $adicionalClasses : '' }}">{{ $value }}</td>
