@@ -2461,7 +2461,7 @@ class OportunidadesController extends Controller
         $descDocumento =  $file['name'];
         $Documento = base64_encode(file_get_contents($_FILES["fileOport"]["tmp_name"]));
 
-        DB::statement(DB::raw(" EXEC sp_updateOportDocs :descDocumento,:Documento, :Extencion,:Size,:idUsuarioReg,:idOportunidad,:idTipoDocumento"), [
+        DB::statement(" EXEC sp_updateOportDocs :descDocumento,:Documento, :Extencion,:Size,:idUsuarioReg,:idOportunidad,:idTipoDocumento", [
             ':descDocumento' => $descDocumento,
             ':Documento' => $Documento,
             ':Extencion' => $Extencion,
@@ -2472,7 +2472,7 @@ class OportunidadesController extends Controller
         ]);
 
         // foreach ($tickets as $key => $value) {
-        //     DB::statement(DB::raw(" EXEC sp_updateEstructuralDocs :descDocumento,:Documento, :Extencion,:Size,:idUsuarioReg,:folio, :idCliente,:idTipoDocumento"), [
+        //     DB::statement(" EXEC sp_updateEstructuralDocs :descDocumento,:Documento, :Extencion,:Size,:idUsuarioReg,:folio, :idCliente,:idTipoDocumento", [
         //         ':descDocumento' => $descDocumento,
         //         ':Documento' => $Documento,
         //         ':Extencion' => $Extencion,
@@ -2516,12 +2516,12 @@ class OportunidadesController extends Controller
         $firmas = DB::table('FirmasUsuario')->where('idUsuario', $idUsuario)->get();
 
         if (count($firmas) > 0) {
-            DB::statement(DB::raw(" EXEC sp_updateFirma ?,?"), [
+            DB::statement(" EXEC sp_updateFirma ?,?", [
                 $idUsuario,
                 $Firma,
             ]);
         } else {
-            DB::statement(DB::raw(" EXEC sp_insertFirma ?,?"), [
+            DB::statement(" EXEC sp_insertFirma ?,?", [
                 $idUsuario,
                 $Firma,
             ]);
@@ -3909,7 +3909,7 @@ class OportunidadesController extends Controller
     {
         $idOportunidad = $request->idOportunidad;
         $numPresupuestoMTC = $request->numPresupuestoMTC;
-        DB::statement(DB::raw('SET NOCOUNT ON;exec sp_EPaddValorOportunidad :numPresupuestoMTC,:idElementoP'), [':numPresupuestoMTC' => $numPresupuestoMTC, ':idElementoP' => $idOportunidad]);
+        DB::statement('SET NOCOUNT ON;exec sp_EPaddValorOportunidad :numPresupuestoMTC,:idElementoP', [':numPresupuestoMTC' => $numPresupuestoMTC, ':idElementoP' => $idOportunidad]);
     }
 
     public function obtenerNumPresupuestos(Request $request)
@@ -4464,11 +4464,11 @@ class OportunidadesController extends Controller
             $tripasAutSinCambios = DB::table('DocumentosOport')->whereIn('idDocumento', $tripas)->where('tipoTripa', 2)->first();
 
             // Obtenemos el nombre del vendedor y el nombre del cliente
-            $q = DB::select(DB::raw('select o.nomOportunidad, ct.Nombre as cteNombre, cl.Nombre as vendedorNombre from Oportunidades o
+            $q = DB::select('select o.nomOportunidad, ct.Nombre as cteNombre, cl.Nombre as vendedorNombre from Oportunidades o
                                     left outer join Clientes c on c.idCliente = o.idCliente
                                     left outer join Lito.dbo.Cte ct on ct.Cliente = c.idClienteINT
                                     left outer join ControlLogin.dbo.cat_Usuarios cl on cl.Id_Usuario = o.idAgente
-                                    where idOportunidad = ' . $request->idOportunidad));
+                                    where idOportunidad = ' . $request->idOportunidad);
 
             $oport = Oportunidades::where('idOportunidad', $request->idOportunidad)->first();
 
@@ -4503,9 +4503,9 @@ class OportunidadesController extends Controller
             $idSolicitante = $this->idUsuario();
 
             // Obtenemos el nombre del cliente
-            $nomCliente = DB::select(DB::raw('select o.nomOportunidad, ct.Nombre from Oportunidades o
+            $nomCliente = DB::select('select o.nomOportunidad, ct.Nombre from Oportunidades o
                                             left outer join Clientes c on c.idCliente = o.idCliente
-                                            left outer join Lito.dbo.Cte ct on ct.Cliente = c.idClienteINT where o.idOportunidad = ' . $oportunidad->idOportunidad));
+                                            left outer join Lito.dbo.Cte ct on ct.Cliente = c.idClienteINT where o.idOportunidad = ' . $oportunidad->idOportunidad);
             $nomCliente = $nomCliente[0]->Nombre;
             if ($request->nomTrabajo == null) {
                 $nomTrabajo = $oportunidad->folio . ' - ' . $request->nomOportunidad;

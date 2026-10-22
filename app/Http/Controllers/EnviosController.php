@@ -782,7 +782,7 @@ class EnviosController extends Controller
         $descDocumento = $file['name'];
         $Documento = base64_encode(file_get_contents($_FILES["file"]["tmp_name"]));
 
-        DB::statement(DB::raw(" EXEC sp_updateEnvDocs :descDocumento,:Documento, :Extencion,:Size,:idUsuarioReg,:idOportunidad,:idTipoDocumento"), [
+        DB::statement(" EXEC sp_updateEnvDocs :descDocumento,:Documento, :Extencion,:Size,:idUsuarioReg,:idOportunidad,:idTipoDocumento", [
             ':descDocumento' => $descDocumento,
             ':Documento' => $Documento,
             ':Extencion' => $Extencion,

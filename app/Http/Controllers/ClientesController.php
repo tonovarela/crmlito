@@ -1515,7 +1515,7 @@ class ClientesController extends Controller
         $Documento = base64_encode(file_get_contents($_FILES["file"]["tmp_name"]));
 
         // try{
-        DB::statement(DB::raw(" EXEC sp_updateClientesDocs :descDocumento,:Documento, :Extencion,:Size,:idUsuarioReg,:idCliente,:idProspecto,:idTipoDocumento"), [
+        DB::statement(" EXEC sp_updateClientesDocs :descDocumento,:Documento, :Extencion,:Size,:idUsuarioReg,:idCliente,:idProspecto,:idTipoDocumento", [
             ':descDocumento' => $descDocumento,
             ':Documento' => $Documento,
             ':Extencion' => $Extencion,

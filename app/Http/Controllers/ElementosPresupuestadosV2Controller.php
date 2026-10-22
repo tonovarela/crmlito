@@ -1943,7 +1943,7 @@ class ElementosPresupuestadosV2Controller extends Controller
             $descDocumento = $titulo . '.pdf';
             $Documento = $archivo;
     
-            DB::statement(DB::raw(" EXEC sp_updateOportDocs :descDocumento,:Documento, :Extencion,:Size,:idUsuarioReg,:idOportunidad,:idTipoDocumento,:tipoPresupuesto"), [
+            DB::statement(" EXEC sp_updateOportDocs :descDocumento,:Documento, :Extencion,:Size,:idUsuarioReg,:idOportunidad,:idTipoDocumento,:tipoPresupuesto", [
                 ':descDocumento' => $descDocumento,
                 ':Documento' => $Documento,
                 ':Extencion' => $Extencion,
@@ -2178,7 +2178,7 @@ class ElementosPresupuestadosV2Controller extends Controller
             $descDocumento = $titulo . '.pdf';
             $Documento = $archivo;
     
-            DB::statement(DB::raw(" EXEC sp_updateOportDocs :descDocumento,:Documento, :Extencion,:Size,:idUsuarioReg,:idOportunidad,:idTipoDocumento,:tipoPresupuesto"), [
+            DB::statement(" EXEC sp_updateOportDocs :descDocumento,:Documento, :Extencion,:Size,:idUsuarioReg,:idOportunidad,:idTipoDocumento,:tipoPresupuesto", [
                 ':descDocumento' => $descDocumento,
                 ':Documento' => $Documento,
                 ':Extencion' => $Extencion,

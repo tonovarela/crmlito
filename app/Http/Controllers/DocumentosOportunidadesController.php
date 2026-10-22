@@ -235,7 +235,7 @@ class DocumentosOportunidadesController extends Controller
 
             $solicitarPrepedido = $request->solicitarPrepedido;
 
-            DB::statement(DB::raw(" EXEC sp_updateOportDocs :descDocumento,:Documento, :Extencion,:Size,:idUsuarioReg,:idOportunidad,:idTipoDocumento"), [
+            DB::statement(" EXEC sp_updateOportDocs :descDocumento,:Documento, :Extencion,:Size,:idUsuarioReg,:idOportunidad,:idTipoDocumento", [
                 ':descDocumento' => $descDocumento,
                 ':Documento' => $Documento,
                 ':Extencion' => $Extencion,

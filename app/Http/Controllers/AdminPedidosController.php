@@ -2326,32 +2326,32 @@ class AdminPedidosController extends Controller
         try {
             $pedidoField = $request->typeIdPedido == 2 ? 'IDPedido' : 'MovIDFactura';
 
-            $tImporteFactura = DB::select(DB::raw('
+            $tImporteFactura = DB::select('
             SELECT SUM(ImporteFactura) as tImporteFactura
             FROM (
                 SELECT DISTINCT IDFactura, ImporteFactura
                 FROM Lito.dbo.FacturasLito
                 WHERE ' . $pedidoField . ' = ?
             ) as subquery
-        '), [$request->idPedido])[0]->tImporteFactura;
+        ', [$request->idPedido])[0]->tImporteFactura;
 
-            $tImporteCobro = DB::select(DB::raw('
+            $tImporteCobro = DB::select('
             SELECT SUM(ImporteCobro) as tImporteCobro
             FROM (
                 SELECT DISTINCT IDFactura, ImporteCobro
                 FROM Lito.dbo.FacturasLito
                 WHERE ' . $pedidoField . ' = ?
             ) as subquery
-        '), [$request->idPedido])[0]->tImporteCobro;
+        ', [$request->idPedido])[0]->tImporteCobro;
 
-            $tImporteAplicacion = DB::select(DB::raw('
+            $tImporteAplicacion = DB::select('
             SELECT SUM(ImporteAplicacion) as tImporteAplicacion
             FROM (
                 SELECT DISTINCT IDFactura, ImporteAplicacion
                 FROM Lito.dbo.FacturasLito
                 WHERE ' . $pedidoField . ' = ?
             ) as subquery
-        '), [$request->idPedido])[0]->tImporteAplicacion;
+        ', [$request->idPedido])[0]->tImporteAplicacion;
 
             return response()->json([
                 'facturas' => DB::table('Lito.dbo.FacturasLito')

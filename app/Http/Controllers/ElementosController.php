@@ -202,7 +202,7 @@ class ElementosController extends Controller
         //$elPr = ElementosPresupuestados::findOrFail($idDocumentoP);
         //return $elPr;
         
-        DB::statement(DB::raw('SET NOCOUNT ON;exec sp_EPaddValorOportunidad :numPresupuestoMTC,:idElementoP'), [':numPresupuestoMTC' => $numPresupuestoMTC, ':idElementoP' => $idElementoP]);
+        DB::statement('SET NOCOUNT ON;exec sp_EPaddValorOportunidad :numPresupuestoMTC,:idElementoP', [':numPresupuestoMTC' => $numPresupuestoMTC, ':idElementoP' => $idElementoP]);
 
         // return ($UPDATE);
 
@@ -748,7 +748,7 @@ class ElementosController extends Controller
         $evento = $request->evento;
         $id = $request->id;
         try {
-            $combo = DB::select(DB::raw('exec sp_CatalogoPapel :evento, :id'), [':evento' => $evento, ':id' => $id]);
+            $combo = DB::select('exec sp_CatalogoPapel :evento, :id', [':evento' => $evento, ':id' => $id]);
         } catch (\Illuminate\Database\QueryException $ex) {
             dd($ex->getMessage());
             // Note any method of class PDOException can be called on $ex.
@@ -760,7 +760,7 @@ class ElementosController extends Controller
     {
         $evento = $request->evento;
         try {
-            $combo = DB::select(DB::raw('exec sp_EPCombos :evento'), [':evento' => $evento]);
+            $combo = DB::select('exec sp_EPCombos :evento', [':evento' => $evento]);
         } catch (\Illuminate\Database\QueryException $ex) {
             dd($ex->getMessage());
             // Note any method of class PDOException can be called on $ex.
@@ -774,7 +774,7 @@ class ElementosController extends Controller
         $idElementoP = $request->idElementoP;
         $numInterior = $request->numInterior;
         try {
-            $combo = DB::select(DB::raw('exec sp_EPCombosInfoGral :evento ,:idElementoP,:numInterior'), [':evento' => $evento, ':idElementoP' => $idElementoP, ':numInterior' => $numInterior]);
+            $combo = DB::select('exec sp_EPCombosInfoGral :evento ,:idElementoP,:numInterior', [':evento' => $evento, ':idElementoP' => $idElementoP, ':numInterior' => $numInterior]);
         } catch (\Illuminate\Database\QueryException $ex) {
             dd($ex->getMessage());
             // Note any method of class PDOException can be called on $ex.
@@ -787,7 +787,7 @@ class ElementosController extends Controller
         $evento = $request->evento;
         $idElementoP = $request->idElementoP;
         try {
-            $combo = DB::select(DB::raw('exec sp_EPtbl :evento,:idElementoP'), [':evento' => $evento, ':idElementoP' => $idElementoP]);
+            $combo = DB::select('exec sp_EPtbl :evento,:idElementoP', [':evento' => $evento, ':idElementoP' => $idElementoP]);
         } catch (\Illuminate\Database\QueryException $ex) {
             dd($ex->getMessage());
             // Note any method of class PDOException can be called on $ex.

@@ -21,6 +21,11 @@ class SmokeTest extends TestCase
         'logout',
         'clear-cache',
         'up',
+        'apiOportunidadCambios',
+        'tripaCCRealizada',
+        'tripaCCorreccioneRealizada',
+        'obtener-checklist-op',
+        'oportunidad-realizado-estatus',
     ];
 
     public function test_rutas_get_no_devuelven_500(): void

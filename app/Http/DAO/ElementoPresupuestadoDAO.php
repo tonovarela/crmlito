@@ -54,8 +54,8 @@ class ElementoPresupuestadoDAO
         $dto->tblAcabadosGrles= DB::table('v_EPacabadosGles')->where('idElementoP', $idElementoP)->get();
         $dto->tblEmpaque= DB::table('v_EPempaque')->where('idElementoP', $idElementoP)->get();
         $dto->combo_tipoPapelItem= EPcomboSustratos::select('clasificacion')->distinct()->get();
-        $dto->combo_tblmedidas1 = DB::select(DB::raw('exec sp_EPtblPDF :evento,:idElementoP'),[':evento' => 'tblMedidas',':idElementoP' => $idElementoP]);
-        $dto->combo_tblmedidas2 = DB::select(DB::raw('exec sp_EPtblPDF :evento,:idElementoP'),[':evento' => 'tblAcabados',':idElementoP' => $idElementoP]);
+        $dto->combo_tblmedidas1 = DB::select('exec sp_EPtblPDF :evento,:idElementoP',[':evento' => 'tblMedidas',':idElementoP' => $idElementoP]);
+        $dto->combo_tblmedidas2 = DB::select('exec sp_EPtblPDF :evento,:idElementoP',[':evento' => 'tblAcabados',':idElementoP' => $idElementoP]);
         $dto->notas = DB::table('ElementosPnotas')->where('idElementoP', $idElementoP)->get();
         return $dto;
     }
@@ -168,8 +168,8 @@ class ElementoPresupuestadoDAO
     public function  addValor($idElementoP,$numPresupuestoMTC)
     {
         $dto=new \stdClass; 
-      $dto->addValorOpo = DB::statement(DB::raw('SET NOCOUNT ON;exec sp_EPaddValorOportunidad :numPresupuestoMTC,:idElementoP'),[':numPresupuestoMTC' => $numPresupuestoMTC,':idElementoP' => $idElementoP]);
-                        //   DB::statement(DB::raw('SET NOCOUNT ON;exec sp_EPaddValorOportunidad :numPresupuestoMTC,:idElementoP'),[':numPresupuestoMTC' => $numPresupuestoMTC,':idElementoP' => $idElementoP]);
+      $dto->addValorOpo = DB::statement('SET NOCOUNT ON;exec sp_EPaddValorOportunidad :numPresupuestoMTC,:idElementoP',[':numPresupuestoMTC' => $numPresupuestoMTC,':idElementoP' => $idElementoP]);
+                        //   DB::statement('SET NOCOUNT ON;exec sp_EPaddValorOportunidad :numPresupuestoMTC,:idElementoP',[':numPresupuestoMTC' => $numPresupuestoMTC,':idElementoP' => $idElementoP]);
         return 'ok';
     }
 }

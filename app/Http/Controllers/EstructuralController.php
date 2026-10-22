@@ -1674,7 +1674,7 @@ class EstructuralController extends Controller
             $descDocumento =  $file['name'];
             $Documento = base64_encode(file_get_contents($_FILES["fileEstr"]["tmp_name"]));
 
-            DB::statement(DB::raw(" EXEC sp_updateEstructuralDocs :descDocumento,:Documento, :Extencion,:Size,:idUsuarioReg,:folio, :idCliente,:idTipoDocumento"), [
+            DB::statement(" EXEC sp_updateEstructuralDocs :descDocumento,:Documento, :Extencion,:Size,:idUsuarioReg,:folio, :idCliente,:idTipoDocumento", [
                 ':descDocumento' => $descDocumento,
                 ':Documento' => $Documento,
                 ':Extencion' => $Extencion,
@@ -1688,7 +1688,7 @@ class EstructuralController extends Controller
             $idDocumentoEstructural = DB::table('DocumentosEstructural')->where('idTipoDocumento', $idTipoDocumento)->where('idUsuarioReg', $idUsuarioReg)->max('id_documentosEstructural');
 
             if ($idTipoDocumento != 11) {
-                DB::statement(DB::raw(" EXEC sp_updateOportDocs :descDocumento,:Documento, :Extencion,:Size,:idUsuarioReg,:idOportunidad,:idTipoDocumento"), [
+                DB::statement(" EXEC sp_updateOportDocs :descDocumento,:Documento, :Extencion,:Size,:idUsuarioReg,:idOportunidad,:idTipoDocumento", [
                     ':descDocumento' => $descDocumento,
                     ':Documento' => $Documento,
                     ':Extencion' => $Extencion,
