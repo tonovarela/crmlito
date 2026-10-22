@@ -11,6 +11,10 @@ services:
     env_file: .env
     environment:
       PHP_OPCACHE_VALIDATE_TIMESTAMPS: ${PHP_OPCACHE_VALIDATE_TIMESTAMPS:-1}
+      # Sin config/route/view:cache para que los cambios se vean al recargar
+      APP_ENV: local
+      DB_TRUST_SERVER_CERTIFICATE: "true"
+      MAIL_MAILER: log
     volumes:
       - ./:/var/www/html
     extra_hosts:
