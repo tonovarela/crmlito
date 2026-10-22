@@ -99,5 +99,21 @@ Se trabaja por patrón, en todo el repo:
 5. `docker compose exec app php artisan test` pasa los tests de humo.
 6. El checklist manual de la Fase 4 queda completo sin errores en el log.
 
+## Estado (22-oct-2026)
+- Fases 0–3 hechas en la rama `upgrade/laravel12` (commits f12c286, 9b2002d, c5d72ce, cfb9b2f).
+- Imagen `crmlito:8.3` compila; `/crmlito/up` responde 200 y las 461 rutas cargan.
+- **Siguiente: Fase 4.** Está bloqueada hasta tener una BD de pruebas (SQL Server). Con ella se corre `SMOKE_LOGIN=<usuario> php artisan test` y el checklist manual.
+- Pendiente del usuario: rotar la contraseña de Gmail de noreply, indicar la versión de PHP actual en producción y decidir si se borra el código muerto (`*copy.php`, `*Dev.php`, `ProspectosRController.php`, `Auth/*`, la importación de Excel del tutorial).
+
+## Fuera de alcance (pospuesto por el usuario)
+Exposición de `PswMail`, la contraseña de Gmail de cada agente:
+- `getDocumentoOportMail` y `getDocumentoEstrMail` la devuelven al navegador sin pedir `auth`.
+- El JS la reenvía en `enviarDocumentoMail`.
+
+Corrección propuesta para más adelante:
+- El servidor la obtiene de la BD y deja de exponerla.
+- Middleware `auth` en esas rutas.
+- A largo plazo, enviar siempre con la cuenta noreply y el agente en Reply-To.
+
 ## Estimación
 Unas 2 a 4 semanas de una persona. El grueso está en la Fase 3 (los `count()` y los controladores de más de 3k líneas) y en las pruebas manuales, porque no hay tests existentes.
