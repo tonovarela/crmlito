@@ -1,0 +1,18 @@
+services:
+  app:
+    # Entorno de desarrollo: monta el código. La imagen de producción se construye con
+    #   docker build --target production -t crmlito:8.3 .
+    build:
+      context: .
+      target: base
+    image: crmlito:dev
+    ports:
+      - "8080:80"
+    env_file: .env
+    environment:
+      PHP_OPCACHE_VALIDATE_TIMESTAMPS: ${PHP_OPCACHE_VALIDATE_TIMESTAMPS:-1}
+    volumes:
+      - ./:/var/www/html
+    extra_hosts:
+      # Permite usar DB_HOST=host.docker.internal si SQL Server corre en el host
+      - "host.docker.internal:host-gateway"

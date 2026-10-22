@@ -76,6 +76,8 @@ return [
             'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
+            // ODBC 18 cifra por defecto; true si SQL Server usa un certificado autofirmado
+            'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', false),
         ],
 
     ],
