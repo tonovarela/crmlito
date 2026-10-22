@@ -1,0 +1,1 @@
+{"version":2,"defects":{"Tests\\Feature\\SmokeTest::test_rutas_get_no_devuelven_500":1},"times":{"Tests\\Unit\\ExampleTest::test_that_true_is_true":0.007,"Tests\\Feature\\SmokeTest::test_rutas_get_no_devuelven_500":0.034}}
