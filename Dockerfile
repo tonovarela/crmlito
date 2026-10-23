@@ -74,7 +74,10 @@ ENV APP_ENV=production
 COPY --chown=www-data:www-data . .
 COPY --from=vendor --chown=www-data:www-data /var/www/html/vendor ./vendor
 
+# Los permisos se copian tal cual del checkout (p. ej. 750/640 con umask 027) y Apache
+# no podría leer public/.htaccess: se normalizan a 755 (dirs) / 644 (archivos).
 RUN set -eux; \
+    chmod -R u=rwX,go=rX /var/www/html; \
     mkdir -p storage/app/public storage/framework/cache storage/framework/sessions \
              storage/framework/views storage/logs bootstrap/cache; \
     chown -R www-data:www-data storage bootstrap/cache
