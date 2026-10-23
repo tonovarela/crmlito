@@ -98,7 +98,7 @@ function tblIndex(serve, eventoTbl) {
         // ajax: url,
 
         ajax: {
-            url: (serve + "/tblelementos/" + eventoTbl),
+            url: (serve + "tblelementos/" + eventoTbl),
             type: 'GET',
             dataType: 'json',
         },
@@ -472,7 +472,7 @@ function tblEP_relation(serve, eventoTbl) {
         // ajax: url,
 
         ajax: {
-            url: (serve + "/tblelementos/" + eventoTbl),
+            url: (serve + "tblelementos/" + eventoTbl),
             type: 'GET',
             dataType: 'json',
         },

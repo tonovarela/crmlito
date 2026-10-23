@@ -47,7 +47,7 @@ function sltCombos(rutaActual) {
                     data: {
                         evento: elem
                     },
-                    url: (serve + '/getCombos/'),
+                    url: (serve + 'getCombos/'),
                     type: "GET",
                     dataType: "json",
                     success: function(r) {
@@ -159,7 +159,7 @@ $(document).ready(function(event) {
                     evento: evento,
                     id: id
                 },
-                url: (serve + '/getCatalogoPapel/'),
+                url: (serve + 'getCatalogoPapel/'),
                 type: "GET",
                 dataType: "json",
                 //beforeSend: function() {
@@ -304,7 +304,7 @@ function clonarElemento(idElemento) {
             Msg.fire({
               title: 'Elemento Clonado',
             });
-            window.location.href = serve + "/elementos";
+            window.location.href = serve + "elementos";
         },
           error: function () {},
         });

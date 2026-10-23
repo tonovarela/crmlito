@@ -1218,7 +1218,7 @@ function abrirModalRegistroPresupuesto(tipo, idEp = null) {
     let elementosData = [];
 
     $.ajax({
-        url: serve + "/getElementosPresupuestadosByIds",
+        url: serve + "getElementosPresupuestadosByIds",
         type: "POST",
         data: {
             _token: CSRF_TOKEN,
@@ -2873,7 +2873,7 @@ function guardarDocumentosEPS(tipo = 1) {
     }
 
     $.ajax({
-        url: serve + "/guardar-exceles-ep",
+        url: serve + "guardar-exceles-ep",
         type: "POST",
         data: formData,
         processData: false,

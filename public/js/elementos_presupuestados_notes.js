@@ -7,7 +7,7 @@ function obtNotas() {
     idElementoP = $("#idElementoP1").val();
     $.ajax({
         data: { idElementoP: idElementoP },
-        url: (serve + '/obtNotas/'),
+        url: (serve + 'obtNotas/'),
         type: "GET",
         dataType: "json",
         success: function(r) {

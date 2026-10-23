@@ -56,7 +56,7 @@ function tblMedidas(idElementoP) {
             idElementoP: idElementoP
 
         },
-        url: (serve + '/gettblelementosp/'),
+        url: (serve + 'gettblelementosp/'),
         type: "GET",
         dataType: "json",
         success: function(r) {
@@ -106,7 +106,7 @@ function tblAcabados(idElementoP) {
             idElementoP: idElementoP
 
         },
-        url: (serve + '/gettblelementosp/'),
+        url: (serve + 'gettblelementosp/'),
         type: "GET",
         dataType: "json",
         success: function(r) {
@@ -150,7 +150,7 @@ function combo_InfGral(idElementoP) {
                 numInterior: 0
 
             },
-            url: (serve + '/getCombosInfoGral/'),
+            url: (serve + 'getCombosInfoGral/'),
             type: "GET",
             dataType: "json",
             success: function(r) {
@@ -197,7 +197,7 @@ function EspeficacionesEdit() {
             numInterior: index
 
         },
-        url: (serve + '/getCombosInfoGral/'),
+        url: (serve + 'getCombosInfoGral/'),
         type: "GET",
         dataType: "json",
         success: function(r) {
@@ -245,7 +245,7 @@ function sltCombosEdit() {
                     numInterior: index
 
                 },
-                url: (serve + '/getCombosInfoGral/'),
+                url: (serve + 'getCombosInfoGral/'),
                 type: "GET",
                 dataType: "json",
                 success: function(r) {

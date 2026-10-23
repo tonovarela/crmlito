@@ -614,7 +614,7 @@ function tblAdminPedidosTbl() {
 
                         async: true,
                         type: "POST",
-                        url: serve + '/facturas',
+                        url: serve + 'facturas',
                         data: formDataFacturas,
                         processData: false,
                         contentType: false,
@@ -1209,7 +1209,7 @@ function tblAdminPedidosListosLiberarTbl() {
 
                         async: true,
                         type: "POST",
-                        url: serve + '/facturas',
+                        url: serve + 'facturas',
                         data: formDataFacturas,
                         processData: false,
                         contentType: false,
@@ -1363,7 +1363,7 @@ function marcarPedidosFirmadosDireccion() {
     $.ajax({
         async: true,
         type: "POST",
-        url: serve + '/marcarPedidosFirmadosDireccion',
+        url: serve + 'marcarPedidosFirmadosDireccion',
         data: formdatamark,
         processData: false,
         contentType: false,
@@ -1700,7 +1700,7 @@ function tblAdminPedidosLiberadosTbl() {
 
                         async: true,
                         type: "POST",
-                        url: serve + '/facturas',
+                        url: serve + 'facturas',
                         data: formDataFacturas,
                         processData: false,
                         contentType: false,

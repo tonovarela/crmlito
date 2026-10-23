@@ -19,7 +19,9 @@ if (!isset($_GET['usuario'])) {
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="environment" content="{{ config('app.env') }}">
 
-    <title>{{ config('app.name', 'Laravel') }} | {{ request()->route()->getName() }}</title>
+       <title>{{ config('app.name', 'Laravel') }} | {{ request()->route()->getName() }}</title>
+
+
 
     @include('partials.styles')
 

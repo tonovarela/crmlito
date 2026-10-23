@@ -17,7 +17,7 @@ function changeCFD(id) {
     check = $("#CFD_" + id).is(":checked") ? 0 : 1;
     Mensaje = "Actualizar el estatus de Enviar CFD del Contacto Seleccionado?";
     title = "Contacto Actualizado";
-    ruta = serve + "/updateCFD/";
+    ruta = serve + "updateCFD/";
     addChange(id, Mensaje, ruta, check, title);
 }
 
@@ -25,7 +25,7 @@ function changeCXP(id) {
     check = $("#CXP_" + id).is(":checked") ? 0 : 1;
     Mensaje = "Actualizar el estatus de Contacto CXP del Contacto Seleccionado?";
     title = "Contacto Actualizado";
-    ruta = serve + "/updateCXP/";
+    ruta = serve + "updateCXP/";
     addChange(id, Mensaje, ruta, check, title);
 }
 
@@ -49,7 +49,7 @@ function changeActivo(id) {
     //     title = "Contacto Inactivo";
     // }
     
-    ruta = serve + "/updateActivo/";
+    ruta = serve + "updateActivo/";
 
     addChange(id, Mensaje, ruta, check, title);
 }

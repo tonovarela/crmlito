@@ -989,7 +989,7 @@ function subirArchivoOport() {
     formDataUpload.append('documento', file);
 
     $.ajax({
-        url: serve + "/subir-archivo-oportunidad",
+        url: serve + "subir-archivo-oportunidad",
         type: "POST",
         data: formDataUpload,
         processData: false,
@@ -1057,7 +1057,7 @@ function enviarTripaPreprensa(id_documento)
             formData.append('idOportunidad', $('#idOportunidad').val());
 
             $.ajax({
-                url: serve + "/enviar-tripa-preprensa",
+                url: serve + "enviar-tripa-preprensa",
                 type: "POST",
                 data: formData,
                 processData: false,
@@ -1298,7 +1298,7 @@ function guardarMultipresupuestoExcel()
     // formData.append('dataExcel', JSON.stringify(dataExcel));
 
     $.ajax({
-        url: serve + "/guardar-multipresupuesto-excel",
+        url: serve + "guardar-multipresupuesto-excel",
         type: "POST",
         data: formData,
         processData: false,
@@ -1711,7 +1711,7 @@ function asignarFolioPP(id_documento)
                 Swal.showValidationMessage('Por favor ingresa el folio de preprensa.');
             }
 
-            return fetch(serve + `/validar-folio-metrics/${value}`, {
+            return fetch(serve + `validar-folio-metrics/${value}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -28,7 +28,7 @@ function tblOportunidades(tipo) {
             url: serve + 'js/spanish-DT.json'
         },
         ajax: {
-            url: (serve + "/tblClientesOport/" + ClienteINT),
+            url: (serve + "tblClientesOport/" + ClienteINT),
             type: 'GET',
             dataType: 'json',
             data: {

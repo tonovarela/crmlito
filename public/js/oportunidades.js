@@ -68,7 +68,7 @@ $(document).ready(function () {
         orderable: false,
         scrollCollapse: true,
         ajax: {
-            url: serve + "/api/listadoRechazoOport",
+            url: serve + "api/listadoRechazoOport",
             data: function (d) {
                 d.oportunidadID = id;
             },

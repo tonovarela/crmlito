@@ -2686,10 +2686,10 @@ function buscarEstr(getResults = 1) {
 
                 if (collapsed) {
                     $('#btn-expandirEstr').attr('title', 'Expandir Todo');
-                    btnExpandirEstri.src = serve + '/img/flecha-down-w.png';
+                    btnExpandirEstri.src = serve + 'img/flecha-down-w.png';
                 } else {
                     $('#btn-expandirEstr').attr('title', 'Colapsar Todo');
-                    btnExpandirEstri.src = serve + '/img/flecha-up_w.png';
+                    btnExpandirEstri.src = serve + 'img/flecha-up_w.png';
                 }
 
                 rows.nodes().each(function (r) {
@@ -2985,13 +2985,13 @@ function expandirTodo() {
 
     if (window.estrCollapsed) {
         $('#btn-expandirEstr').attr('title', 'Expandir Todo');
-        btnExpandirEstri.src = serve + '/img/flecha-down-w.png';
+        btnExpandirEstri.src = serve + 'img/flecha-down-w.png';
         nodes.each(function (r) {
             r.style.display = 'none';
         });
     } else {
         $('#btn-expandirEstr').attr('title', 'Colapsar Todo');
-        btnExpandirEstri.src = serve + '/img/flecha-up_w.png';
+        btnExpandirEstri.src = serve + 'img/flecha-up_w.png';
         nodes.each(function (r) {
             r.style.display = '';
         });
