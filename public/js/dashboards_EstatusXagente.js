@@ -54,7 +54,7 @@ function obtCard(Agente, Año, Mes) {
             Año: Año,
             Mes: Mes,
         },
-        url: (base_path + 'api/obt_DasboardsEstatusXagente/'),
+        url: (base_path + 'api/obt_DasboardsEstatusXagente'),
         type: "GET",
         dataType: "json",
         success: function(result) {

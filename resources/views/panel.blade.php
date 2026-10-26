@@ -485,10 +485,10 @@ if (!isset($_GET['usuario'])) {
                             </div>
                         @else
                             @section('scripts')
-                                <script src="{{ asset('js/panel.js?n=1') }}"></script>
+                                <script src="{{ asset('js/panel.js?n=2') }}"></script>
                                 <script src="{{ asset('js/agenda.js?n=1') }}" defer></script>
                                 <script src="{{ asset('js/llamadas.js?n=1') }}" defer></script>
-                                <script src="{{ asset('js/dashboards_EstatusXagenteAgenda.js?n=1') }}"></script>
+                                <script src="{{ asset('js/dashboards_EstatusXagenteAgenda.js?n=2') }}"></script>
                             @endsection
                         @endif
                     @endforeach

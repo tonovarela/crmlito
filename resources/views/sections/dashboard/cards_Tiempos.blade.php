@@ -63,6 +63,6 @@
         <!-- /.footer -->
     </div>
 </div>
-<script src=" {{ asset('js/dashboards_Tiempos.js?n=1') }} " defer></script>
+<script src=" {{ asset('js/dashboards_Tiempos.js?n=2') }} " defer></script>
 <script src="{{ asset('js/Chart.min.js') }}"></script>
 <script src="{{ asset('js/chartjs-plugin-doughnutlabel.js') }} "></script>

@@ -72,7 +72,7 @@ function obtGraficaVentasVsMeta(Agente, Año) {
     // alert('agente' + Agente)
     $.ajax({
         data: { Agente: Agente, Año: Año },
-        url: (base_path + 'api/obt_DasboardsGraficaVentasVsMeta/'),
+        url: (base_path + 'api/obt_DasboardsGraficaVentasVsMeta'),
         type: "GET",
         dataType: "json",
         success: function(result) {

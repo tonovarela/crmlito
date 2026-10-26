@@ -20,4 +20,4 @@
         </div>
     </div>
 </div>
-<script src=" {{ asset('js/dashboards_Semana.js?n=1') }} " defer></script>
+<script src=" {{ asset('js/dashboards_Semana.js?n=2') }} " defer></script>

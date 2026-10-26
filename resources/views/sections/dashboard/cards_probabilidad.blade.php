@@ -34,7 +34,7 @@
     <!-- /.card-body-->
 </div>
 <!-- /.card -->
-<script src=" {{ asset('js/dashboards_probabilidad.js?n=1') }} " defer></script>
+<script src=" {{ asset('js/dashboards_probabilidad.js?n=2') }} " defer></script>
 <script src=" {{ asset('adminlte/plugins/flot/jquery.flot.js') }} " defer></script>
 <script src=" {{ asset('adminlte/plugins/flot/plugins/jquery.flot.resize.js') }} " defer></script>
 <script src=" {{ asset('adminlte/plugins/flot/plugins/jquery.flot.pie.js') }} " defer></script>

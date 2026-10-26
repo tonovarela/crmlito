@@ -13,7 +13,7 @@ $(function() {
     function obtGraficaSemana() {
         $.ajax({
 
-            url: (base_path + 'api/obt_DasboardsGraficaPie/'),
+            url: (base_path + 'api/obt_DasboardsGraficaPie'),
             type: "GET",
             dataType: "json",
             success: function(result) {

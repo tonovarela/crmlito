@@ -29,7 +29,7 @@ function obtBox(Agente) {
         data: {
             Agente: Agente
         },
-        url: (base_path + 'api/obt_DasboardsboxVentas/'),
+        url: (base_path + 'api/obt_DasboardsboxVentas'),
         type: "GET",
         dataType: "json",
         success: function(result) {

@@ -42,4 +42,4 @@
 <!-- /.card -->
 <script src="{{ asset('js/Chart.min.js') }}"></script>
 <script src="{{ asset('js/chartjs-plugin-doughnutlabel.js') }} "></script>
-<script src=" {{ asset('js/dashboards_VtasVsMeta.js?n=1') }} " defer></script>
+<script src=" {{ asset('js/dashboards_VtasVsMeta.js?n=2') }} " defer></script>

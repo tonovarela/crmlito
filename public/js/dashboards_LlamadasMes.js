@@ -45,7 +45,7 @@ function obtGraficaLlamadasMes(AgenteAgendaLlamada) {
     // alert('agente' + Agente)
     $.ajax({
         data: { Agente: AgenteAgendaLlamada },
-        url: (base_path + 'api/obt_DasboardsGraficaAgendaLlamadas/'),
+        url: (base_path + 'api/obt_DasboardsGraficaAgendaLlamadas'),
         type: "GET",
         dataType: "json",
         success: function(result) {
@@ -72,7 +72,7 @@ function obtGraficaReunionesMes(AgenteAgendaLlamada) {
     // alert('agente' + Agente)
     $.ajax({
         data: { Agente: AgenteAgendaLlamada },
-        url: (base_path + 'api/obt_DasboardsGraficaAgendaReuniones/'),
+        url: (base_path + 'api/obt_DasboardsGraficaAgendaReuniones'),
         type: "GET",
         dataType: "json",
         success: function(resultReunion) {

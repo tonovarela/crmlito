@@ -37,7 +37,7 @@ $(function () {
         if (Mes == 'TODOS') { Mes = 'TODOS' } else { Mes = $("#mes_dashboard").val() }
         $.ajax({
 
-            url: (base_path + 'api/obt_DasboardsOportunidadesValor/'),
+            url: (base_path + 'api/obt_DasboardsOportunidadesValor'),
             type: "GET",
             dataType: "json",
             data: {

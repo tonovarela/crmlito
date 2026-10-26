@@ -1,3 +1,5 @@
+serve = base_path;
+
 año_dashboard = document.getElementById("año_dashboard");
 mes_dashboard = document.getElementById("mes_dashboard");
 
@@ -53,7 +55,7 @@ function totalTripasWhitCorrect(){
         type: "GET",
         dataType: "json",
         success: function(data){
-            if (data.data.length != 0) {
+            if (data.data && data.data.length != 0) {
                 $('#totalTripasCorrect').text('( ' + data.data[0].totalTripasCorrect + ' )');
             }
         }

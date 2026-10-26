@@ -2,7 +2,7 @@
 
 
 </div>
-<script src=" {{ asset('js/dashboards_Estatus.js?n=1') }} " defer></script>
+<script src=" {{ asset('js/dashboards_Estatus.js?n=2') }} " defer></script>
 <script>
     function gotoOport(evento) {
 

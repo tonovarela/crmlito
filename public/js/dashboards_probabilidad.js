@@ -39,7 +39,7 @@ function obtGrafica(Agente) {
         data: {
             Agente: Agente
         },
-        url: (base_path + 'api/obt_DasboardsGraficaProbabilidad/'),
+        url: (base_path + 'api/obt_DasboardsGraficaProbabilidad'),
         type: "GET",
         dataType: "json",
         success: function(result) {

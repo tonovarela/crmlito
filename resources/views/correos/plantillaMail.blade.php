@@ -20,26 +20,26 @@
                 <tr>
                     <td style="border: solid 1px #000; width: 20%; text-align: right">Nombre de la Oportunidad : </td>
                     <td style="border: solid 1px #000; width: 80%"><a
-                            href="{{ url($route) }}/{{ $folio }}/edit"
+                            href="{{ config('app.url') }}/{{ $route }}/{{ $folio }}/edit"
                             style="text-transform: uppercase;">{{ $nombre_oportunidad }}</a>&nbsp;&nbsp;</td>
                 </tr>
                 <tr style="width: 80%">
                     <td style="border: solid 1px #000; text-align: right">Folio : </td>
                     <td style="border: solid 1px #000"><a
-                            href="{{ url($route) }}/{{ $folio }}/edit">{{ $folio }}</a>&nbsp;&nbsp;
+                            href="{{ config('app.url') }}/{{ $route }}/{{ $folio }}/edit">{{ $folio }}</a>&nbsp;&nbsp;
                     </td>
                 </tr>
             @elseif ($route == 'envios')
                 <tr>
                     <td style="border: solid 1px #000; width: 20%; text-align: right">Nombre de la Oportunidad : </td>
                     <td style="border: solid 1px #000; width: 80%"><a
-                            href="{{ url($route) }}"
+                            href="{{ config('app.url') }}/{{ $route }}"
                             style="text-transform: uppercase;">{{ $nombre_oportunidad }}</a>&nbsp;&nbsp;</td>
                 </tr>
                 <tr>
                     <td style="border: solid 1px #000; text-align: right">Folio : </td>
                     <td style="border: solid 1px #000"><a
-                            href="{{ url($route) }}">{{ $folio }}</a>&nbsp;&nbsp;
+                            href="{{ config('app.url') }}/{{ $route }}">{{ $folio }}</a>&nbsp;&nbsp;
                     </td>
                 </tr>
             @else
@@ -197,11 +197,11 @@
 
     {{-- <ul>
         @if ($route == 'oportunidades')
-            <li>Nombre de la Oportunidad : <a href="{{ url($route) }}/{{ $folio }}/edit" style="text-transform: uppercase;">{{ $nombre_oportunidad }}</a></li>
-            <li>Folio : <a href="{{ url($route) }}/{{ $folio }}/edit">{{ $folio }}</a></li>
+            <li>Nombre de la Oportunidad : <a href="{{ config('app.url') }}/{{ $route }}/{{ $folio }}/edit" style="text-transform: uppercase;">{{ $nombre_oportunidad }}</a></li>
+            <li>Folio : <a href="{{ config('app.url') }}/{{ $route }}/{{ $folio }}/edit">{{ $folio }}</a></li>
         @elseif ($route == "envios")
-            <li>Nombre de la Oportunidad : <a href="{{ url($route) }}" style="text-transform: uppercase;">{{ $nombre_oportunidad }}</a></li>
-            <li>Folio : <a href="{{ url($route) }}">{{ $folio }}</a></li>
+            <li>Nombre de la Oportunidad : <a href="{{ config('app.url') }}/{{ $route }}" style="text-transform: uppercase;">{{ $nombre_oportunidad }}</a></li>
+            <li>Folio : <a href="{{ config('app.url') }}/{{ $route }}">{{ $folio }}</a></li>
         @else
             <li style="text-transform: uppercase;">Nombre de la Oportunidad : {{ $nombre_oportunidad }}</li>
             <li>Folio : {{ $folio }}</li>

@@ -31,7 +31,7 @@ $(function() {
     function obtGraficaSemana(Año) {
         $.ajax({
 
-            url: (base_path + 'api/obt_DasboardsGraficaBar/'),
+            url: (base_path + 'api/obt_DasboardsGraficaBar'),
             type: "GET",
             dataType: "json",
             data: {

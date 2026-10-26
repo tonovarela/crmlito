@@ -7,4 +7,4 @@
         </div>
     </div>
 </div>
-<script src=" {{ asset('js/dashboards_Oportunidades_Valor.js?n=1') }} " defer></script>
+<script src=" {{ asset('js/dashboards_Oportunidades_Valor.js?n=2') }} " defer></script>

@@ -102,4 +102,4 @@
         </div>
     </div>
 </div>
-<script src=" {{ asset('js/dashboards_boxVentas.js?n=1') }} " defer></script>
+<script src=" {{ asset('js/dashboards_boxVentas.js?n=2') }} " defer></script>

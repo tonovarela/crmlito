@@ -51,7 +51,7 @@ function obtCardLlamada(AgenteCards) {
         data: {
             Agente: AgenteCards
         },
-        url: (base_path + 'api/obt_DasboardsEstatusXagenteLlamadas/'),
+        url: (base_path + 'api/obt_DasboardsEstatusXagenteLlamadas'),
         type: "GET",
         dataType: "json",
         success: function(resultCardLlamadas) {
@@ -114,7 +114,7 @@ function obtCardReunion(AgenteCards) {
         data: {
             Agente: AgenteCards
         },
-        url: (base_path + 'api/obt_DasboardsEstatusXagenteReuniones/'),
+        url: (base_path + 'api/obt_DasboardsEstatusXagenteReuniones'),
         type: "GET",
         dataType: "json",
         success: function(resultCardReuniones) {
