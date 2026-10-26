@@ -264,7 +264,11 @@
     <script src=" {{ asset('js/oportunidades.js?n=1') }} " defer></script>
     <script src=" {{ asset('js/oportunidades_Docs.js?n=1') }} " defer></script>
     <script src=" {{ asset('js/cambiar_agente.js?n=1') }} " defer></script>
-    <script src=" {{ asset('js/admin_pedidos.js?n=1') }} " defer></script>
+    <script>
+        // admin_pedidos.js no puede usar route(): la URL se arma aquí para respetar el prefijo del proxy
+        const urlGetVendedoresR = @json(route('getVendedoresR'));
+    </script>
+    <script src=" {{ asset('js/admin_pedidos.js?n=2') }} " defer></script>
     <script src=" {{ asset('js/xlsx.full.min.js?n=1') }} " defer></script>
     <script src=" {{ asset('js/xlsx.bundle.js?n=1') }} " defer></script>
 

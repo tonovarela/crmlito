@@ -80,7 +80,7 @@ window.onload = () => {
  */
 function getVendedoresListInc() {
     // Rellenamos el select con los vendedores
-    $.get('/getVendedoresR', function(data) {
+    $.get(urlGetVendedoresR, function(data) {
         let finalStr = '';
 
         // Iteramos los vendedores para agregarlos con el nombre en la etiqueta y el id en el onclick
