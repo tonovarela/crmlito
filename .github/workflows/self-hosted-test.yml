@@ -1,0 +1,19 @@
+name: Prueba self-hosted runner
+
+# Workflow de prueba para verificar el runner local. Se lanza manualmente desde la pestaña Actions.
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Info del equipo
+        run: |
+          echo "Runner: $RUNNER_NAME ($RUNNER_OS/$RUNNER_ARCH)"
+          uname -a
+          whoami
+          pwd
+          ls -la
