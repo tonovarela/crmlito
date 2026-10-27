@@ -1,7 +1,5 @@
 /node_modules
 /public/hot
-/public/storage
-/public/pdfjs
 /storage/*.key
 /vendor
 /.idea
@@ -14,8 +12,5 @@ yarn-error.log
 sftp-config.json
 .vscode/sftp.json
 /storage
-/public/manual
-/public/fontawesome
 .env.backup*
-
 .phpunit.result.cache
