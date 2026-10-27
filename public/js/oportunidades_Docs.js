@@ -2034,7 +2034,9 @@ function editDocument(idDocumento) {
     // window.open('https://servicios.litoprocess.com/editorpdf/#/webviewer/' + idDocumento, '_blank');
 
     // Abrir el visor de documentos en esta misma ventana
-    window.open('/editorpdf/#/webviewer/' + idDocumento + '?oport=' + id.value, '_self');
+    
+    const origen = window.location.pathname.split('/')[1]     
+    window.open(`/editorpdf/#/webviewer/${idDocumento}?oport=${id.value}&origen=${origen}`, '_self');
 }
 
 const copiarLigaTripa = async (idDocumento) => {
