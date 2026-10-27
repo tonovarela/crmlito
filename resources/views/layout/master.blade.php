@@ -7,6 +7,9 @@ if (!isset($_GET['usuario'])) {
 }
 ?>
 <!DOCTYPE html>
+
+
+
 <html lang="{{ app()->getLocale() }}">
 
 <head>
