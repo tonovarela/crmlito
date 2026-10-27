@@ -1,12 +1,10 @@
 name: Publicar imagen Docker
 
 # Construye la etapa "production" del Dockerfile y la publica en GitHub Container Registry
-# como ghcr.io/<owner>/<repo>.
+# como ghcr.io/<owner>/<repo>. Solo se ejecuta al subir un tag v*.
 on:
   push:
-    branches: [main]
     tags: ['v*']
-  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
@@ -29,13 +27,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # latest en main, sha-<commit> siempre y versiones semver en tags v*
+      # versiones semver del tag, sha-<commit> y latest (automático para versiones estables)
       - id: meta
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=raw,value=latest,enable={{is_default_branch}}
             type=sha,prefix=sha-
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
