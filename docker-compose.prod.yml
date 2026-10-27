@@ -1,11 +1,10 @@
 services:
   app:
-    # Producción: el código va dentro de la imagen (no se monta). Reconstruir con
-    #   docker compose -f docker-compose.prod.yml up -d --build
-    build:
-      context: .
-      target: production
-    image: crmlito:8.3
+    # Producción: la imagen se publica en GHCR desde GitHub Actions. Desplegar con
+    #   docker compose -f docker-compose.prod.yml pull
+    #   docker compose -f docker-compose.prod.yml up -d
+    # IMAGE_TAG (en .env) fija una versión, p. ej. 1.2.0 o sha-abc1234; por defecto latest.
+    image: ghcr.io/tonovarela/crmlito:${IMAGE_TAG:-latest}
     restart: unless-stopped
     ports:
       - "8091:80"
