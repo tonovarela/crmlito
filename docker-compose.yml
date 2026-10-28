@@ -15,6 +15,9 @@ services:
       APP_ENV: local
       DB_TRUST_SERVER_CERTIFICATE: "true"
       MAIL_MAILER: log
+      # En local la app se sirve en la raíz (no detrás de /crmlito2): la cookie de sesión
+      # debe ir en "/" o el navegador no la envía y session('usuario') llega vacío
+      SESSION_PATH: /
     volumes:
       - ./:/var/www/html
     extra_hosts:
